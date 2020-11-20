@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css"> 
+    <script src="https://unpkg.com/swiper/swiper-bundle.js"> </script> 
+    <script src="./jquery.js"></script>
+    <style>
+        .swiper-container {
+            width: 600px;
+            height: 300px; 
+         } 
+         .swiper-button-prev,.swiper-button-next{
+             display: none;
+         }
+         .bigbox:hover .swiper-button-prev{
+             display: block;
+         }
+         .bigbox:hover .swiper-button-next{
+             display: block;
+         }
+         .bigbox{
+            width: 600px;
+            height: 300px; 
+            margin: 0 auto;
+         }
+
+    </style>
+</head>
+<body>
+       <div class="bigbox">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="./imgs/11.jpg" alt="">
+                </div>
+                <div class="swiper-slide">
+                      <img src="./imgs/22.jpg" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img src="./imgs/33.jpg" alt="">
+                </div>
+                <div class="swiper-slide">
+                   <img src="./imgs/44.jpg" alt="">
+                </div>
+                <div class="swiper-slide">
+                   <img src="./imgs/55.jpg" alt="">
+                </div>
+            </div>
+            <!-- 如果需要分页器 -->
+            <div class="swiper-pagination"></div>
+            
+            <!-- 如果需要导航按钮 -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+            
+        </div>
+    </div>
+    
+        <script>        
+            var mySwiper = new Swiper ('.swiper-container', {
+                    direction: 'horizontal', // 水平切换选项
+                    initialSlide :0,
+                    loop: true, // 循环模式选项
+                    // autoplay:false,//等同于以下设置
+
+                    autoplay: {
+                         delay: 1000,//1秒切换一次
+                    },
+                                   
+                    // 如果需要分页器
+                    pagination: {
+                        el: '.swiper-pagination',
+                        clickable :true,
+                    },
+                    
+                    // 如果需要前进后退按钮
+                    navigation: {
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev',
+                    },
+                   
+            })  
+
+                //鼠标覆盖停止自动切换
+                mySwiper.el.onmouseover = function(){
+                mySwiper.autoplay.stop();
+                }
+
+                //鼠标离开开始自动切换
+                mySwiper.el.onmouseout = function(){
+                mySwiper.autoplay.start();
+                }
+
+            </script>
+</body>
+</html>
